@@ -1,36 +1,46 @@
 import React, { Component } from 'react'
 
-export default class Product extends Component {
+export class Product extends Component {
+  render() {
+    return (
+      <div>
+        <Cart></Cart>
+      </div>
+    )
+  }
+}
 
+export default Product;
+
+class Cart extends Component {
 
     constructor(props) {
       super(props)
     
       this.state = {
-         qty :  0
+         qty:0
       }
     }
     
-
     updateQty = ()=>{
         this.setState({
-            qty : this.state.qty+1
+            qty:this.state.qty+1
         })
+
     }
 
     componentDidMount(){
-        console.log("Execute later");
+        console.log("quantity should be executed");
     }
 
-    componentDidUpdate(prevProps,prevState){
-        console.log("Execution done");
+    componentDidUpdate(prevProps, prevState){
+        console.log("Quantity updated");
     }
 
   render() {
     return (
       <div>
-        <h1>Cart Elite : {this.state.qty}</h1>
-        <button onClick={this.updateQty}>Updation</button>
+        <button onClick={this.updateQty}>Cart: {this.state.qty}</button>
       </div>
     )
   }
